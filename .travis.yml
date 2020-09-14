@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- stable
+branches:
+  only:
+  - master
+install: npm install
+services:
+- mongodb
+cache:
+  directories:
+    - "node_modules"
+script: npm test
+after_success:
+  - npm run coverage
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: !!!!!!! travis encrypt $(heroku auth:token) --add deploy.api_key !!!!!!
+#   app: SET APP HERE!!!!!!
+#   skip_cleanup: true
+#   on:
+#     branch: master
