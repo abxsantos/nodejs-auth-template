@@ -9,7 +9,7 @@
     "clean": "rimraf build",
     "start": "node ./build/start.js",
     "start-dev": "nodemon src/start.js",
-    "test": "jest --watchAll --no-cache",
+    "test": "jest --no-cache",
     "test-cov": "jest --coverage",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },

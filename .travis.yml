@@ -4,12 +4,16 @@ node_js:
 branches:
   only:
   - master
+env:
+  - NODE_ENV=test 
+  - PORT=3000 
+  - DATABASE_URL=mongodb://localhost:27017/
 install: npm install
 services:
-- mongodb
+  - mongodb
 cache:
   directories:
-    - "node_modules"
+    - node_modules
 script: npm test
 after_success:
   - npm run coverage
