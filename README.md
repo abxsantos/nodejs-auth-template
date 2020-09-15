@@ -1,4 +1,4 @@
-# sample-node-express-api  
+# nodejs-auth-template 
 A sample node js api for creating and authenticating users via JSON web tokens, it's used here to demonstrate the steps to extend API with your own rest api.     
 
 ## Steps
@@ -10,7 +10,7 @@ A sample node js api for creating and authenticating users via JSON web tokens, 
 #### The first step is to set the environment variables as seen in the .env.example.
 ``` 
 //on local
-git clone https://github.com/abxsantos/sample-node-express-api  
+git clone https://github.com/abxsantos/nodejs-auth-template 
 npm install
 ```
 ```

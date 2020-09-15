@@ -1,0 +1,98 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "nodejs-auth-template",
+    "description": "Basic NodeJS auth template API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Sign Up",
+      "description": "API for signing up users in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/signup": {
+      "post": {
+        "tags": ["Sign Up"],
+        "summary": "register an users in the database",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/signin": {
+      "post": {
+        "tags": ["Sign In"],
+        "summary": "Sign in the user setting the JWT in the session.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/signout": {
+      "post": {
+        "tags": ["Sign Out"],
+        "summary": "Sign out the current user, setting the JWT to null",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/currentuser": {
+      "get": {
+        "tags": ["Current user"],
+        "summary": "get the current logged in user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "format": "email",
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 20
+        }
+      }
+    }
+  }
+}

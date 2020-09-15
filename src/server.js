@@ -2,6 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 import { json, urlencoded } from 'body-parser';
 import cookieSession from 'cookie-session';
+import swaggerUi from 'swagger-ui-express';
 
 import errorHandler from './middlewares/error-handler';
 import signupRouter from './components/authentication/router/signup-router';
@@ -9,6 +10,8 @@ import currentUserRouter from './components/authentication/router/current-user-r
 import signinRouter from './components/authentication/router/signin-router';
 import signoutRouter from './components/authentication/router/signout-router';
 import NotFoundError from './errors/not-found-error';
+
+const swaggerDocument = require('./swagger/swagger.json');
 
 class App {
   constructor() {
@@ -26,6 +29,11 @@ class App {
         signed: false,
         secure: process.env.NODE_ENV !== 'test',
       })
+    );
+    this.server.use(
+      '/api-docs',
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
     );
   }
 
