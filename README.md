@@ -1,5 +1,5 @@
 # NodeJS-Express Authentication template [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Coverage Status](https://coveralls.io/repos/github/abxsantos/nodejs-auth-template/badge.svg?branch=master)](https://coveralls.io/github/abxsantos/nodejs-auth-template?branch=master) [![Build Status](https://travis-ci.com/abxsantos/nodejs-auth-template.svg?branch=master)](https://travis-ci.com/abxsantos/nodejs-auth-template)
+[![Coverage Status](https://coveralls.io/repos/github/abxsantos/nodejs-auth-template/badge.svg?branch=master)](https://coveralls.io/github/abxsantos/nodejs-auth-template?branch=master) [![Build Status](https://travis-ci.com/abxsantos/nodejs-auth-template.svg?branch=master)](https://travis-ci.com/abxsantos/nodejs-auth-template)[![codecov](https://codecov.io/gh/abxsantos/nodejs-auth-template/branch/master/graph/badge.svg)](https://codecov.io/gh/abxsantos/nodejs-auth-template)
 <br>
 A sample node js api for creating and authenticating users via JSON web tokens, it's used here to demonstrate the steps to extend API with your own rest api.     
 
