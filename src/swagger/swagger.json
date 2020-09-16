@@ -21,10 +21,25 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/api/signup": {
+    "/api/users/signup": {
       "post": {
         "tags": ["Sign Up"],
-        "summary": "register an users in the database",
+        "summary": "Register an users in the database",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "x-examples": {
+              "application/json": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"\"\r\n}"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created",
@@ -35,7 +50,7 @@
         }
       }
     },
-    "/api/signin": {
+    "/api/users/signin": {
       "post": {
         "tags": ["Sign In"],
         "summary": "Sign in the user setting the JWT in the session.",
@@ -45,11 +60,17 @@
             "schema": {
               "$ref": "#/definitions/User"
             }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/Model5"
+            }
           }
         }
       }
     },
-    "/api/signout": {
+    "/api/users/signout": {
       "post": {
         "tags": ["Sign Out"],
         "summary": "Sign out the current user, setting the JWT to null",
@@ -63,7 +84,7 @@
         }
       }
     },
-    "/api/currentuser": {
+    "/api/users/currentuser": {
       "get": {
         "tags": ["Current user"],
         "summary": "get the current logged in user",
@@ -91,6 +112,96 @@
           "type": "string",
           "minLength": 4,
           "maxLength": 20
+        }
+      }
+    },
+    "Model0": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Model3": {},
+    "Model4": {
+      "properties": {
+        "currentUser": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "Errors": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Model5": {
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Errors"
+          }
+        }
+      }
+    },
+    "Model6_Errors": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Model6": {
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Model6_Errors"
+          }
+        }
+      }
+    },
+    "Model7_Errors": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Model7": {
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Model7_Errors"
+          }
+        }
+      }
+    },
+    "Model8_Errors": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        }
+      }
+    },
+    "Model8": {
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Model8_Errors"
+          }
         }
       }
     }

@@ -10,8 +10,7 @@ import currentUserRouter from './components/authentication/router/current-user-r
 import signinRouter from './components/authentication/router/signin-router';
 import signoutRouter from './components/authentication/router/signout-router';
 import NotFoundError from './errors/not-found-error';
-
-const swaggerDocument = require('./swagger/swagger.json');
+import swaggerDocument from './swagger/swagger.json';
 
 class App {
   constructor() {
@@ -30,14 +29,14 @@ class App {
         secure: process.env.NODE_ENV !== 'test',
       })
     );
+  }
+
+  routes() {
     this.server.use(
       '/api-docs',
       swaggerUi.serve,
       swaggerUi.setup(swaggerDocument)
     );
-  }
-
-  routes() {
     this.server.use(currentUserRouter);
     this.server.use(signinRouter);
     this.server.use(signoutRouter);
