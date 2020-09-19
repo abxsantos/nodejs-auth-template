@@ -4,6 +4,8 @@ import { json, urlencoded } from 'body-parser';
 import cookieSession from 'cookie-session';
 import swaggerUi from 'swagger-ui-express';
 
+//consegui fazer o commit!
+
 import errorHandler from './middlewares/error-handler';
 import signupRouter from './components/authentication/router/signup-router';
 import currentUserRouter from './components/authentication/router/current-user-router';
