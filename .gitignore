@@ -1,3 +1,7 @@
+#IDE
+.vscode/
+.idea/
+
 # Logs
 logs
 *.log
@@ -11,6 +15,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 #Docker volume
 mongodata/
+pgdata/
 
 # Runtime data
 pids
